@@ -44,7 +44,6 @@ const SHELL = [
  "blueprints/cr-xsp13.svg",
  "blueprints/manifest.json",
  "data.json",
- "icon-source.png",
  "index.html",
  "manifest.webmanifest",
  "pwa-deeplink.js",
