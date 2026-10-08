@@ -1,5 +1,5 @@
 /* html2pwa service worker: offline app shell. Version changes whenever the file list/sizes change. */
-const VERSION = 'html2pwa-856128cde4';
+const VERSION = 'manticore-v2-1791469129';
 const SHELL = [
  "./",
  "assets/hydra-advanced-intelligence-banner.jpg",
