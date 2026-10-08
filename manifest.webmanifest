@@ -1,0 +1,63 @@
+{
+  "name": "HYDRA Manticore Command",
+  "short_name": "Manticore",
+  "id": "./",
+  "start_url": "./?source=homescreen",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#B11226",
+  "icons": [
+    {
+      "src": "pwa-icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "pwa-icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "pwa-icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "pwa-icons/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-icons/icon-167.png",
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Manticore Evidence",
+      "url": "./?action=evidence"
+    },
+    {
+      "name": "Manticore Roadmap",
+      "url": "./?action=roadmap"
+    },
+    {
+      "name": "Manticore Arch",
+      "url": "./?action=arch"
+    },
+    {
+      "name": "Manticore Blueprints",
+      "url": "./?action=blueprints"
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<!-- html2pwa:begin -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#B11226">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Manticore">
+<link rel="apple-touch-icon" href="pwa-icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="180x180" href="pwa-icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="pwa-icons/icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="pwa-icons/icon-152.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="pwa-icons/favicon-32.png">
+<script src="pwa-deeplink.js" defer data-register-sw="1"></script>
+<!-- html2pwa:end -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#B11226" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>HYDRA Manticore Command</title>
+  <style>
+    :root {
+      --obs:#0A0A0A; --stark:#1A1A1A; --slate:#2E2E2E;
+      --crim:#B11226; --ruby:#7A0C14; --gold:#D4AF37;
+      --txt:#E8E8E8; --mut:#A8A8A8;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bot: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin:0; padding:0; background:var(--obs); color:var(--txt);
+      font-family: Montserrat, system-ui, -apple-system, sans-serif; }
+    a { color: var(--gold); }
+    a:focus, button:focus, input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .app { min-height: 100dvh; display:flex; flex-direction:column;
+      padding-top: var(--safe-top); padding-bottom: calc(72px + var(--safe-bot)); }
+    .banner { width:100%; height:72px; object-fit:cover; display:block;
+      border-bottom:1px solid rgba(212,175,55,.35); }
+    .header { padding:10px 16px 6px; background:linear-gradient(180deg,var(--stark),var(--obs)); }
+    .kicker { font-family:Rajdhani,sans-serif; font-weight:700; color:var(--crim);
+      letter-spacing:.28em; font-size:10px; text-transform:uppercase; }
+    h1 { font-family:Cinzel,serif; color:var(--gold); font-size:18px; margin:4px 0 2px; letter-spacing:.06em; }
+    .sub { color:var(--mut); font-size:11px; }
+    .mark { display:inline-block; margin-top:6px; padding:2px 8px; border:1px solid rgba(212,175,55,.4);
+      color:var(--gold); font-size:9px; letter-spacing:.16em; font-family:Rajdhani,sans-serif; }
+    main { flex:1; padding:12px 14px 20px; overflow-y:auto; }
+    .panel { display:none; } .panel.active { display:block; }
+    .card { background:var(--stark); border:1px solid rgba(212,175,55,.22); border-radius:10px;
+      padding:12px; margin-bottom:10px; }
+    .card h3 { font-family:Cinzel,serif; color:var(--gold); font-size:13px; margin:0 0 6px; }
+    .card p { color:var(--txt); font-size:12px; line-height:1.45; margin:0; }
+    .tag { display:inline-block; font-family:Rajdhani,sans-serif; font-weight:700; font-size:10px;
+      letter-spacing:.08em; padding:2px 7px; border-radius:4px; margin-right:4px; }
+    .tag.VERIFIED,.tag.CONCEPT,.tag.mixed,.tag.lab { background:rgba(212,175,55,.18); color:var(--gold); border:1px solid rgba(212,175,55,.45); }
+    .tag.HYPOTHESIS { background:rgba(168,168,168,.12); color:var(--mut); border:1px solid rgba(168,168,168,.35); }
+    .tag.UNVERIFIED { background:rgba(177,18,38,.18); color:#e8a0a8; border:1px solid rgba(177,18,38,.45); }
+    .counts { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px; }
+    .count { background:var(--slate); border-radius:8px; padding:10px; text-align:center; }
+    .count .n { font-family:Rajdhani,sans-serif; font-weight:700; font-size:22px; color:var(--gold); }
+    .count .l { font-size:9px; color:var(--mut); letter-spacing:.12em; text-transform:uppercase; }
+    .filters { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+    .filters button { background:var(--slate); color:var(--txt); border:1px solid rgba(212,175,55,.25);
+      border-radius:16px; padding:6px 12px; font-size:11px; font-family:Rajdhani,sans-serif; font-weight:700; }
+    .filters button.on { background:var(--ruby); border-color:var(--gold); color:var(--gold); }
+    .checklist label { display:flex; gap:10px; align-items:flex-start; padding:8px 0;
+      border-bottom:1px solid rgba(46,46,46,.9); font-size:12px; }
+    .checklist input { accent-color:var(--crim); margin-top:2px; width:18px; height:18px; }
+    .nav { position:fixed; left:0; right:0; bottom:0; padding-bottom:var(--safe-bot);
+      background:rgba(10,10,10,.96); border-top:1px solid rgba(212,175,55,.3);
+      display:grid; grid-template-columns:repeat(7,1fr); z-index:20; }
+    .nav button { background:transparent; border:0; color:var(--mut); padding:8px 2px 6px;
+      font-family:Rajdhani,sans-serif; font-size:8px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; }
+    .nav button.on { color:var(--gold); }
+    .nav button .ic { display:block; font-size:13px; margin-bottom:2px; }
+    .warn { color:#e8a0a8; font-size:11px; border-left:3px solid var(--crim); padding-left:8px; margin:8px 0; }
+    .diagram { font-family:Courier Prime,ui-monospace,monospace; font-size:10px; color:var(--mut);
+      white-space:pre; overflow-x:auto; background:var(--obs); padding:10px; border-radius:8px; border:1px solid var(--slate); }
+    .fac { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .fac .card { margin:0; }
+    .repo-link { display:block; text-align:center; padding:14px; background:var(--ruby);
+      color:var(--gold)!important; text-decoration:none; border-radius:10px; font-family:Cinzel,serif;
+      letter-spacing:.06em; border:1px solid rgba(212,175,55,.4); }
+    .bp-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .bp-card { background:var(--stark); border:1px solid rgba(212,175,55,.25); border-radius:10px; overflow:hidden; padding:0; }
+    .bp-card img { width:100%; height:110px; object-fit:cover; object-position:top; display:block; background:#111; }
+    .bp-card .meta { padding:8px; }
+    .bp-card .meta h4 { margin:0 0 4px; font-family:Cinzel,serif; color:var(--gold); font-size:11px; }
+    .bp-card button { width:100%; margin-top:6px; background:var(--ruby); color:var(--gold); border:1px solid rgba(212,175,55,.4);
+      border-radius:6px; padding:6px; font-family:Rajdhani,sans-serif; font-weight:700; font-size:11px; }
+    #lightbox { display:none; position:fixed; inset:0; z-index:50; background:rgba(0,0,0,.94);
+      padding: calc(12px + var(--safe-top)) 12px calc(12px + var(--safe-bot)); flex-direction:column; }
+    #lightbox.open { display:flex; }
+    #lightbox .bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    #lightbox .bar h3 { margin:0; color:var(--gold); font-family:Cinzel,serif; font-size:13px; flex:1; padding-right:8px; }
+    #lightbox .bar button { background:var(--slate); color:var(--gold); border:1px solid var(--gold); border-radius:8px; padding:8px 12px;
+      font-family:Rajdhani,sans-serif; font-weight:700; }
+    #lightbox .stage { flex:1; overflow:auto; touch-action:pan-x pan-y pinch-zoom; border:1px solid rgba(212,175,55,.3); border-radius:8px;
+      background:#050505; display:flex; align-items:flex-start; justify-content:center; }
+    #lightbox img { max-width:none; width:100%; height:auto; transform-origin:center top; }
+    #lightbox.zoomed img { width:200%; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <img class="banner" src="assets/hydra-advanced-intelligence-banner.jpg" alt="HYDRA Advanced Intelligence" />
+    <header class="header">
+      <div class="kicker">HYDRA · H.A.I.L.</div>
+      <h1>Manticore Command</h1>
+      <div class="sub" id="hydraLine">ANALYZE // AUTOMATE // DOMINATE</div>
+      <div class="mark" id="marking">H.A.I.L. INTERNAL // LAB ONLY</div>
+    </header>
+    <main>
+      <section id="tab-overview" class="panel active">
+        <div class="card"><h3>Mission</h3><p id="mission"></p><p class="warn" id="scopeNote"></p></div>
+        <div class="card"><h3>Motto</h3><p id="motto" style="font-family:Cinzel,serif;color:var(--gold);font-size:13px;"></p></div>
+      </section>
+      <section id="tab-arch" class="panel">
+        <div class="card"><h3>Cognitive stack</h3>
+          <div class="diagram">Sense → Physics Gate → Tulving Memory
+→ SNN/STDP → ONE EYE (FEP)
+→ ISR / Comms / Logistics
+(kinetic payloads excluded)</div>
+        </div>
+        <div id="archCards"></div>
+      </section>
+      <section id="tab-blueprints" class="panel">
+        <p class="warn">Concept schematics only. Tap any sheet to zoom. No weapons / hardpoints / munitions.</p>
+        <div class="filters" id="bpFilters">
+          <button class="on" data-g="ALL">All</button>
+          <button data-g="airframe">Airframes</button>
+          <button data-g="render">Renders</button>
+          <button data-g="systems">Systems</button>
+        </div>
+        <div class="bp-grid" id="bpGrid"></div>
+      </section>
+      <section id="tab-evidence" class="panel">
+        <div class="counts" id="counts"></div>
+        <div class="filters" id="filters">
+          <button class="on" data-f="ALL">All</button>
+          <button data-f="VERIFIED">Verified</button>
+          <button data-f="HYPOTHESIS">Hypothesis</button>
+          <button data-f="UNVERIFIED">Unverified</button>
+        </div>
+        <div id="evidenceList"></div>
+      </section>
+      <section id="tab-roadmap" class="panel">
+        <div class="card"><h3>Milestones</h3>
+          <p style="color:var(--mut);font-size:11px;margin-bottom:8px;">Saved on this device (localStorage).</p>
+          <div class="checklist" id="roadmapList"></div>
+        </div>
+      </section>
+      <section id="tab-facilities" class="panel">
+        <p class="warn">City / role only — no street-level or sensitive detail on this surface.</p>
+        <div class="fac" id="facList"></div>
+      </section>
+      <section id="tab-repo" class="panel">
+        <div class="card"><h3>Private repository</h3>
+          <p id="repoNote" style="margin-bottom:12px;color:var(--mut);font-size:12px;"></p>
+          <a class="repo-link" id="repoLink" href="#" target="_blank" rel="noopener">Open project-manticore</a>
+        </div>
+      </section>
+    </main>
+    <nav class="nav">
+      <button class="on" data-tab="overview"><span class="ic">◆</span>Home</button>
+      <button data-tab="arch"><span class="ic">▣</span>Arch</button>
+      <button data-tab="blueprints"><span class="ic">▢</span>Prints</button>
+      <button data-tab="evidence"><span class="ic">☰</span>Evidence</button>
+      <button data-tab="roadmap"><span class="ic">✓</span>Road</button>
+      <button data-tab="facilities"><span class="ic">⌖</span>Sites</button>
+      <button data-tab="repo"><span class="ic">⧉</span>Repo</button>
+    </nav>
+  </div>
+  <div id="lightbox">
+    <div class="bar">
+      <h3 id="lbTitle">Blueprint</h3>
+      <button type="button" id="lbZoom">Zoom</button>
+      <button type="button" id="lbClose">Close</button>
+    </div>
+    <div class="stage"><img id="lbImg" alt="blueprint" /></div>
+  </div>
+  <script>
+  (async function () {
+    const data = await fetch('data.json').then(r => r.json());
+    document.getElementById('mission').textContent = data.mission;
+    document.getElementById('scopeNote').textContent = data.scope_note;
+    document.getElementById('motto').textContent = data.motto;
+    document.getElementById('hydraLine').textContent = data.hydra_line;
+    document.getElementById('marking').textContent = data.marking;
+    document.getElementById('repoNote').textContent = data.repo.note;
+    document.getElementById('repoLink').href = data.repo.private;
+
+    const arch = document.getElementById('archCards');
+    (data.architecture||[]).forEach(a => {
+      const d = document.createElement('div'); d.className='card';
+      d.innerHTML = `<h3>${a.title}</h3><p>${a.blurb}</p>`; arch.appendChild(d);
+    });
+
+    const c = data.evidence_counts;
+    document.getElementById('counts').innerHTML = `
+      <div class="count"><div class="n">${c.VERIFIED}</div><div class="l">Verified</div></div>
+      <div class="count"><div class="n">${c.HYPOTHESIS}</div><div class="l">Hypothesis</div></div>
+      <div class="count"><div class="n">${c.UNVERIFIED}</div><div class="l">Unverified</div></div>`;
+
+    let filter='ALL';
+    const list=document.getElementById('evidenceList');
+    function renderEvidence(){
+      list.innerHTML='';
+      data.evidence.filter(e=>filter==='ALL'||e.tag===filter).forEach(e=>{
+        const d=document.createElement('div'); d.className='card';
+        d.innerHTML=`<div><span class="tag ${e.tag}">${e.tag}</span><span style="color:var(--mut);font-size:10px;font-family:Rajdhani,sans-serif;">${e.id}</span></div>
+          <h3 style="margin-top:6px;">${e.claim}</h3><p style="color:var(--mut);margin-top:4px;">${e.source}</p>`;
+        list.appendChild(d);
+      });
+    }
+    renderEvidence();
+    document.getElementById('filters').addEventListener('click',ev=>{
+      const b=ev.target.closest('button'); if(!b) return;
+      filter=b.dataset.f;
+      [...document.getElementById('filters').children].forEach(x=>x.classList.toggle('on',x===b));
+      renderEvidence();
+    });
+
+    // Blueprints gallery
+    let bpGroup='ALL';
+    const bpGrid=document.getElementById('bpGrid');
+    const lb=document.getElementById('lightbox');
+    const lbImg=document.getElementById('lbImg');
+    const lbTitle=document.getElementById('lbTitle');
+    function openBp(bp){
+      lbTitle.textContent = bp.sheet ? `${bp.sheet} · ${bp.title}` : bp.title;
+      lbImg.src = 'blueprints/' + bp.file;
+      lb.classList.add('open'); lb.classList.remove('zoomed');
+    }
+    document.getElementById('lbClose').onclick=()=>lb.classList.remove('open');
+    document.getElementById('lbZoom').onclick=()=>lb.classList.toggle('zoomed');
+    lbImg.onclick=()=>lb.classList.toggle('zoomed');
+    function renderBp(){
+      bpGrid.innerHTML='';
+      (data.blueprints||[]).filter(b=>bpGroup==='ALL'||b.group===bpGroup).forEach(bp=>{
+        const card=document.createElement('div'); card.className='bp-card';
+        const tagClass = (bp.tag||'').split(/[\s/]/)[0] || 'CONCEPT';
+        card.innerHTML=`<img src="blueprints/${bp.file}" alt="${bp.title}" loading="lazy"/>
+          <div class="meta"><h4>${bp.title}</h4>
+          <span class="tag ${tagClass}">${bp.tag}</span>
+          <button type="button">View / Zoom</button></div>`;
+        card.querySelector('button').onclick=()=>openBp(bp);
+        card.querySelector('img').onclick=()=>openBp(bp);
+        bpGrid.appendChild(card);
+      });
+    }
+    renderBp();
+    document.getElementById('bpFilters').addEventListener('click',ev=>{
+      const b=ev.target.closest('button'); if(!b) return;
+      bpGroup=b.dataset.g;
+      [...document.getElementById('bpFilters').children].forEach(x=>x.classList.toggle('on',x===b));
+      renderBp();
+    });
+
+    const KEY='manticore_roadmap_v1';
+    let saved={}; try{saved=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(_){}
+    const road=document.getElementById('roadmapList');
+    (data.roadmap||[]).forEach(r=>{
+      const done=saved[r.id]!=null?!!saved[r.id]:!!r.done;
+      const lab=document.createElement('label');
+      lab.innerHTML=`<input type="checkbox" ${done?'checked':''} data-id="${r.id}"/><span>${r.text}</span>`;
+      road.appendChild(lab);
+    });
+    road.addEventListener('change',ev=>{
+      const t=ev.target; if(t.type!=='checkbox') return;
+      saved[t.dataset.id]=t.checked; localStorage.setItem(KEY,JSON.stringify(saved));
+    });
+
+    const fac=document.getElementById('facList');
+    (data.facilities||[]).forEach(f=>{
+      const d=document.createElement('div'); d.className='card';
+      d.innerHTML=`<h3>${f.city}</h3><p style="color:var(--mut);">${f.role}</p>`; fac.appendChild(d);
+    });
+
+    document.querySelector('.nav').addEventListener('click',ev=>{
+      const b=ev.target.closest('button'); if(!b) return;
+      const tab=b.dataset.tab;
+      document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('on',x===b));
+      document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='tab-'+tab));
+    });
+
+    if(window.PWA_LAUNCH&&window.PWA_LAUNCH.action){
+      const map={evidence:'evidence',roadmap:'roadmap',arch:'arch',blueprints:'blueprints'};
+      const t=map[window.PWA_LAUNCH.action];
+      if(t) document.querySelector(`.nav button[data-tab="${t}"]`)?.click();
+    }
+  })();
+  </script>
+</body>
+</html>

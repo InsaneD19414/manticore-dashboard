@@ -1,0 +1,121 @@
+[
+  {
+    "id": "bp-sys",
+    "file": "bp-sys-index.png",
+    "title": "Systems Blueprint Index",
+    "tag": "mixed",
+    "group": "systems"
+  },
+  {
+    "id": "bp-a",
+    "file": "bp-a-bwb-airframe.png",
+    "title": "BWB Planform + Profile",
+    "tag": "HYPOTHESIS",
+    "group": "systems"
+  },
+  {
+    "id": "bp-b",
+    "file": "bp-b-nestling-node.png",
+    "title": "NESTLING Sense/FSO Node",
+    "tag": "HYPOTHESIS",
+    "group": "systems"
+  },
+  {
+    "id": "bp-c",
+    "file": "bp-c-rcos-oneeye.png",
+    "title": "RCOS + ONE EYE",
+    "tag": "HYPOTHESIS",
+    "group": "systems"
+  },
+  {
+    "id": "bp-d",
+    "file": "bp-d-tulving-memory.png",
+    "title": "Tulving Memory",
+    "tag": "HYPOTHESIS",
+    "group": "systems"
+  },
+  {
+    "id": "bp-e",
+    "file": "bp-e-physics-gate.png",
+    "title": "Physics Gate Pipeline",
+    "tag": "HYPOTHESIS",
+    "group": "systems"
+  },
+  {
+    "id": "bp-f",
+    "file": "bp-f-facilities-map.png",
+    "title": "Facilities Network",
+    "tag": "lab geography",
+    "group": "systems"
+  },
+  {
+    "id": "af-eclipse",
+    "file": "af-eclipse-multiview.png",
+    "title": "ECLIPSE Multi-View",
+    "tag": "CONCEPT",
+    "group": "airframe"
+  },
+  {
+    "id": "af-xod71",
+    "file": "af-xod71-multiview.png",
+    "title": "XOD-71 / V-4 Multi-View",
+    "tag": "CONCEPT",
+    "group": "airframe"
+  },
+  {
+    "id": "af-xsp13",
+    "file": "af-xsp13-multiview.png",
+    "title": "XSP-13 Multi-View",
+    "tag": "CONCEPT",
+    "group": "airframe"
+  },
+  {
+    "id": "af-nestling",
+    "file": "af-nestling-multiview.png",
+    "title": "NESTLING-10 Multi-View",
+    "tag": "CONCEPT",
+    "group": "airframe"
+  },
+  {
+    "id": "af-manta",
+    "file": "af-manta-multiview.png",
+    "title": "MANTA-S Multi-View",
+    "tag": "CONCEPT",
+    "group": "airframe"
+  },
+  {
+    "id": "cr-eclipse",
+    "file": "cr-eclipse.png",
+    "title": "ECLIPSE Concept Render",
+    "tag": "CONCEPT",
+    "group": "render"
+  },
+  {
+    "id": "cr-xod71",
+    "file": "cr-xod71.png",
+    "title": "XOD-71 Concept Render",
+    "tag": "CONCEPT",
+    "group": "render"
+  },
+  {
+    "id": "cr-xsp13",
+    "file": "cr-xsp13.png",
+    "title": "XSP-13 Concept Render",
+    "tag": "CONCEPT",
+    "group": "render"
+  },
+  {
+    "id": "cr-nestling",
+    "file": "cr-nestling.png",
+    "title": "NESTLING Concept Render",
+    "tag": "CONCEPT",
+    "group": "render"
+  },
+  {
+    "id": "cr-manta",
+    "file": "cr-manta.png",
+    "title": "MANTA-S Concept Render",
+    "tag": "CONCEPT",
+    "group": "render"
+  }
+]

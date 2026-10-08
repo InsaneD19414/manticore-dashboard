@@ -1,0 +1,402 @@
+{
+  "app": "HYDRA Manticore Command",
+  "motto": "Intelligence Beyond Limits. From the Deep. From the Dark. From the Shadows.",
+  "hydra_line": "ANALYZE // AUTOMATE // DOMINATE",
+  "marking": "H.A.I.L. INTERNAL // LAB ONLY",
+  "mission": "Project Manticore targets the AI trilemma of Power, Bandwidth, and Trust at the edge via neuromorphic swarm cognition. Weapons/kinetic systems are out of scope for this dashboard.",
+  "scope_note": "Weapons/kinetic systems are out of scope for this repository (excluded by assistant policy).",
+  "architecture": [
+    {
+      "id": "paradigm",
+      "title": "McFarland Neuromorphic Paradigm",
+      "blurb": "Async SNNs on Loihi-2 / SpiNNaker2 class substrates (Loihi-3 Codex figures UNVERIFIED).",
+      "tag": "mixed"
+    },
+    {
+      "id": "oneeye",
+      "title": "ONE EYE Framework",
+      "blurb": "Free Energy Principle consensus for decentralized swarm coordination.",
+      "tag": "hypothesis"
+    },
+    {
+      "id": "tulving",
+      "title": "Tulving 3-Layer Memory",
+      "blurb": "Working cache \u2192 episodic embeddings \u2192 semantic graph with Ebbinghaus decay.",
+      "tag": "hypothesis"
+    },
+    {
+      "id": "gate",
+      "title": "Physics-Gated Validation",
+      "blurb": "Reject sensor tracks that violate kinematic bounds before belief update.",
+      "tag": "hypothesis"
+    },
+    {
+      "id": "rcos",
+      "title": "RCOS / Exocortex",
+      "blurb": "Persistent recursive cognitive OS bridging intent and synthetic action (Exocortex specs UNVERIFIED).",
+      "tag": "unverified"
+    },
+    {
+      "id": "d2bft",
+      "title": "D2BFT Consensus",
+      "blurb": "Program-specific BFT + zk-SNARK composition for swarm agreement.",
+      "tag": "hypothesis"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "claim": "Intel Loihi 2 exists (~1M neurons / ~120M synapses)",
+      "tag": "VERIFIED",
+      "source": "Intel Loihi 2 technology brief"
+    },
+    {
+      "id": "E02",
+      "claim": "Loihi-3 as shipping product with Codex specs",
+      "tag": "UNVERIFIED",
+      "source": "No public announcement matching Codex"
+    },
+    {
+      "id": "E03",
+      "claim": "15 TOPS/W @ 1.2W for 8M neurons / 64B synapses",
+      "tag": "UNVERIFIED",
+      "source": "Not in public Loihi 2 docs"
+    },
+    {
+      "id": "E04",
+      "claim": "SpiNNaker2 / SpiNNcloud exists (TU Dresden)",
+      "tag": "VERIFIED",
+      "source": "EE Times 2024; arXiv:2401.04491"
+    },
+    {
+      "id": "E05",
+      "claim": "Karl Friston Free Energy Principle",
+      "tag": "VERIFIED",
+      "source": "Nat Rev Neurosci 2010"
+    },
+    {
+      "id": "E06",
+      "claim": "ONE EYE as FEP swarm controller",
+      "tag": "HYPOTHESIS",
+      "source": "Program design intent"
+    },
+    {
+      "id": "E07",
+      "claim": "Tulving episodic vs semantic distinction",
+      "tag": "VERIFIED",
+      "source": "Tulving 1972+"
+    },
+    {
+      "id": "E08",
+      "claim": "3-layer agent memory stack as deployed Manticore",
+      "tag": "HYPOTHESIS",
+      "source": "Architecture pattern"
+    },
+    {
+      "id": "E09",
+      "claim": "Ebbinghaus forgetting curve",
+      "tag": "VERIFIED",
+      "source": "Ebbinghaus 1885+"
+    },
+    {
+      "id": "E10",
+      "claim": "Structural battery composites research area",
+      "tag": "VERIFIED",
+      "source": "Chalmers / Asp et al. 2024"
+    },
+    {
+      "id": "E11",
+      "claim": "0% parasitic battery mass on airframes",
+      "tag": "UNVERIFIED",
+      "source": "Aspirational bound"
+    },
+    {
+      "id": "E12",
+      "claim": "Blended-Wing-Body geometry concept",
+      "tag": "VERIFIED",
+      "source": "NASA / industry BWB research"
+    },
+    {
+      "id": "E13",
+      "claim": "NS-DBD plasma actuators for flow control",
+      "tag": "VERIFIED",
+      "source": "Plasma-aerodynamics literature"
+    },
+    {
+      "id": "E14",
+      "claim": "Codex ns-DBD flight figures as Manticore hardware",
+      "tag": "UNVERIFIED",
+      "source": "Design claims"
+    },
+    {
+      "id": "E15",
+      "claim": "Vantablack / CNT ultra-black coatings",
+      "tag": "VERIFIED",
+      "source": "Surrey NanoSystems public claims"
+    },
+    {
+      "id": "E16",
+      "claim": "Phantom Protocol fielded cloaking system",
+      "tag": "UNVERIFIED",
+      "source": "Concept mash-up"
+    },
+    {
+      "id": "E17",
+      "claim": "VO2 thermochromic phase-transition films",
+      "tag": "VERIFIED",
+      "source": "Materials science literature"
+    },
+    {
+      "id": "E18",
+      "claim": "Superconducting MHD marine propulsion concept",
+      "tag": "HYPOTHESIS",
+      "source": "Historical MHD research; Codex figures UNVERIFIED"
+    },
+    {
+      "id": "E19",
+      "claim": "Zero-trust physics-gated sensor validation",
+      "tag": "HYPOTHESIS",
+      "source": "Defensive design; stub in repo"
+    },
+    {
+      "id": "E20",
+      "claim": "D2BFT + zk-SNARK swarm consensus",
+      "tag": "HYPOTHESIS",
+      "source": "Program-specific composition"
+    },
+    {
+      "id": "E21",
+      "claim": "Exocortex 1024-ch micro-ECoG <10 ms",
+      "tag": "UNVERIFIED",
+      "source": "BCI research exists; specs not demonstrated"
+    },
+    {
+      "id": "E22",
+      "claim": "DARPA Replicator / TTO / I2O exist",
+      "tag": "VERIFIED",
+      "source": "Public DARPA announcements"
+    },
+    {
+      "id": "E23",
+      "claim": "Manticore as awarded DARPA program",
+      "tag": "UNVERIFIED",
+      "source": "Aspirational target only"
+    },
+    {
+      "id": "E24",
+      "claim": "STDP learning rule",
+      "tag": "VERIFIED",
+      "source": "Neuroscience / neuromorphic literature"
+    },
+    {
+      "id": "E25",
+      "claim": "FD-SOI process technology",
+      "tag": "VERIFIED",
+      "source": "Industry FD-SOI platforms"
+    },
+    {
+      "id": "E26",
+      "claim": "Free-space optical laser communications",
+      "tag": "VERIFIED",
+      "source": "Established FSO / lasercom"
+    },
+    {
+      "id": "E27",
+      "claim": "Toroidal fan \u221219.6 dB(A) claim",
+      "tag": "HYPOTHESIS",
+      "source": "Plausible; figure unverified"
+    },
+    {
+      "id": "E28",
+      "claim": "AI power/bandwidth/trust trilemma framing",
+      "tag": "HYPOTHESIS",
+      "source": "Narrative framing"
+    }
+  ],
+  "evidence_counts": {
+    "VERIFIED": 14,
+    "HYPOTHESIS": 8,
+    "UNVERIFIED": 6,
+    "total": 28
+  },
+  "roadmap": [
+    {
+      "id": "r1",
+      "text": "Replace UNVERIFIED hardware figures with bench data or drop them",
+      "done": false
+    },
+    {
+      "id": "r2",
+      "text": "Formalize ONE EYE FEP controller on Loihi 2 / SpiNNaker2 sim",
+      "done": false
+    },
+    {
+      "id": "r3",
+      "text": "Expand physics gate beyond 2D kinematics",
+      "done": false
+    },
+    {
+      "id": "r4",
+      "text": "Memory stub \u2192 Redis + vector DB + graph with retention studies",
+      "done": false
+    },
+    {
+      "id": "r5",
+      "text": "Keep public surfaces free of EIN, treasury hash, and classified markings",
+      "done": true
+    },
+    {
+      "id": "r6",
+      "text": "Private repo + evidence ledger + reference stubs shipped",
+      "done": true
+    },
+    {
+      "id": "r7",
+      "text": "Multi-view airframe blueprints + concept renders shipped",
+      "done": true
+    }
+  ],
+  "facilities": [
+    {
+      "city": "Orland Park",
+      "role": "Executive Command Hub"
+    },
+    {
+      "city": "Tinley Park",
+      "role": "SNN Server Cluster"
+    },
+    {
+      "city": "Blue Island",
+      "role": "Advanced Materials Lab"
+    },
+    {
+      "city": "Pullman",
+      "role": "Subterranean Deployment Facility"
+    }
+  ],
+  "repo": {
+    "private": "https://github.com/InsaneD19414/project-manticore",
+    "note": "Private repository \u2014 requires GitHub access. Public dashboard is sanitized (no EIN/treasury/CLASSIFIED)."
+  },
+  "blueprints": [
+    {
+      "id": "bp-sys",
+      "file": "bp-sys-index.png",
+      "title": "Systems Blueprint Index",
+      "tag": "mixed",
+      "group": "systems"
+    },
+    {
+      "id": "bp-a",
+      "file": "bp-a-bwb-airframe.png",
+      "title": "BWB Planform + Profile",
+      "tag": "HYPOTHESIS",
+      "group": "systems"
+    },
+    {
+      "id": "bp-b",
+      "file": "bp-b-nestling-node.png",
+      "title": "NESTLING Sense/FSO Node",
+      "tag": "HYPOTHESIS",
+      "group": "systems"
+    },
+    {
+      "id": "bp-c",
+      "file": "bp-c-rcos-oneeye.png",
+      "title": "RCOS + ONE EYE",
+      "tag": "HYPOTHESIS",
+      "group": "systems"
+    },
+    {
+      "id": "bp-d",
+      "file": "bp-d-tulving-memory.png",
+      "title": "Tulving Memory",
+      "tag": "HYPOTHESIS",
+      "group": "systems"
+    },
+    {
+      "id": "bp-e",
+      "file": "bp-e-physics-gate.png",
+      "title": "Physics Gate Pipeline",
+      "tag": "HYPOTHESIS",
+      "group": "systems"
+    },
+    {
+      "id": "bp-f",
+      "file": "bp-f-facilities-map.png",
+      "title": "Facilities Network",
+      "tag": "lab geography",
+      "group": "systems"
+    },
+    {
+      "id": "af-eclipse",
+      "file": "af-eclipse-multiview.png",
+      "title": "ECLIPSE Multi-View",
+      "tag": "CONCEPT",
+      "group": "airframe"
+    },
+    {
+      "id": "af-xod71",
+      "file": "af-xod71-multiview.png",
+      "title": "XOD-71 / V-4 Multi-View",
+      "tag": "CONCEPT",
+      "group": "airframe"
+    },
+    {
+      "id": "af-xsp13",
+      "file": "af-xsp13-multiview.png",
+      "title": "XSP-13 Multi-View",
+      "tag": "CONCEPT",
+      "group": "airframe"
+    },
+    {
+      "id": "af-nestling",
+      "file": "af-nestling-multiview.png",
+      "title": "NESTLING-10 Multi-View",
+      "tag": "CONCEPT",
+      "group": "airframe"
+    },
+    {
+      "id": "af-manta",
+      "file": "af-manta-multiview.png",
+      "title": "MANTA-S Multi-View",
+      "tag": "CONCEPT",
+      "group": "airframe"
+    },
+    {
+      "id": "cr-eclipse",
+      "file": "cr-eclipse.png",
+      "title": "ECLIPSE Concept Render",
+      "tag": "CONCEPT",
+      "group": "render"
+    },
+    {
+      "id": "cr-xod71",
+      "file": "cr-xod71.png",
+      "title": "XOD-71 Concept Render",
+      "tag": "CONCEPT",
+      "group": "render"
+    },
+    {
+      "id": "cr-xsp13",
+      "file": "cr-xsp13.png",
+      "title": "XSP-13 Concept Render",
+      "tag": "CONCEPT",
+      "group": "render"
+    },
+    {
+      "id": "cr-nestling",
+      "file": "cr-nestling.png",
+      "title": "NESTLING Concept Render",
+      "tag": "CONCEPT",
+      "group": "render"
+    },
+    {
+      "id": "cr-manta",
+      "file": "cr-manta.png",
+      "title": "MANTA-S Concept Render",
+      "tag": "CONCEPT",
+      "group": "render"
+    }
+  ]
+}
